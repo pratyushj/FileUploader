@@ -16,11 +16,29 @@ var server1 =server.listen(port,function(){
 // });
 
 io.on('connection', function(socket) {
-	console.log("Connected");
   socketStream(socket).on('fileUpload', function(stream, data) {
     var filename = path.basename(data.name);
     console.log(data);
     // console.log(stream);
     stream.pipe(fs.createWriteStream("Uploads/"+filename));
   });
+  socket.on('fileClear',function(){
+  	removeFiles("Uploads/");
+  })
 });
+function removeFiles(dirPath) {
+      try { var files = fs.readdirSync(dirPath); }
+      catch(e) { 
+      	console.log(JSON.stringify(e));
+      	return;
+      	 }
+      console.log("Removing All Files"+JSON.stringify(files));
+      if (files.length > 0)
+        for (var i = 0; i < files.length; i++) {
+          var filePath = dirPath + '/' + files[i];
+          if (fs.statSync(filePath).isFile())
+            fs.unlinkSync(filePath);
+          else
+            rmDir(filePath);
+        }
+    };
