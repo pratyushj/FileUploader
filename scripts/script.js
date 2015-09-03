@@ -18,7 +18,7 @@ require(['socket.io','socket.io-stream'],function(socketIO,SocketStream){
 	})
 	clearHTMLElements();
 	function createSocket(){
-		socket = socketIO.connect('https://warm-crag-7047.herokuapp.com:53056');
+		socket = socketIO.connect('https://warm-crag-7047.herokuapp.com');
 	}
 	createSocket();
 	function sendFile(file){
