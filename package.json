@@ -1,0 +1,32 @@
+{
+  "name": "Pratyush",
+  "version": "1.0.0",
+  "description": "FileUpload app ",
+  "main": "web.js",
+  "scripts": {
+    "test": "node web.js"
+  },
+  "repository": {
+    "type": "git",
+    "url": "https://github.com/pratyushj/FileUploader"
+  },
+  "keywords": [
+    "provider",
+    "app",
+    "socket.io",
+    "HTML File API"
+  ],
+  "author": "Pratyush",
+  "license": "MIT",
+  "bugs": {
+    "url": "https://github.com/pratyushj/FileUploader/issues"
+  },
+  "homepage": "https://github.com/pratyushj/Providerapp",
+  "dependencies": {
+    "express": "^4.7.4",
+    "node-fs": "^0.1.7"
+  },
+   "engines":{
+  "node" :"0.6.18"
+  }
+}
