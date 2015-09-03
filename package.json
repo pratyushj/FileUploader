@@ -24,7 +24,10 @@
   "homepage": "https://github.com/pratyushj/Providerapp",
   "dependencies": {
     "express": "^4.7.4",
-    "node-fs": "^0.1.7"
+    "node-fs": "^0.1.7",
+    "http":"0.0.0",
+    "socket.io":"1.3.5",
+    "socket.io-stream":"~"
   },
    "engines":{
   "node" :"0.12.7"
