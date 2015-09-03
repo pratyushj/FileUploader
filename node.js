@@ -19,11 +19,17 @@ io.on('connection', function(socket) {
 	socketStream(socket).on('fileUpload', function(stream, data) {
 		var filename = path.basename(data.name);
 		console.log(data);
-		fs.lstatSync(uploadRelPath, function(err, stats) {
+		try{
+			fs.lstatSync(uploadRelPath, function(err, stats) {
 			if (!err && stats.isDirectory()) {
 				fs.mkdir(uploadRelPath);
 			}
 		});
+		}catch(e){
+			console.log(JSON.stringify(e));
+			fs.mkdir(uploadRelPath);
+		}
+		
 		stream.pipe(fs.createWriteStream(uploadRelPath+filename));
 	});
 	socket.on('fileClear',function(){
